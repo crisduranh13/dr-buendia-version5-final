@@ -1,5 +1,6 @@
 import DemoDrDiegoBuendia from "@/components/DemoDrDiegoBuendia";
+import CareAreas from "@/components/CareAreas";
 
 export default function Home() {
-  return <DemoDrDiegoBuendia />;
+  return <DemoDrDiegoBuendia><CareAreas /></DemoDrDiegoBuendia>;
 }

@@ -4,9 +4,9 @@ import "./globals.css";
 
 const siteUrl = "https://www.doctorbuendia.com.mx";
 const socialTitle =
-  "Dr. Diego Buendia | Ortopedia, Traumatología y Cirugía de Columna";
+  "Dr. Diego Eduardo Buendia Valdez | Traumatología, Ortopedia y Cirugía de Columna";
 const socialDescription =
-  "Atención especializada en ortopedia, traumatología y cirugía de columna en Ciudad de México, con diagnóstico preciso y tratamiento integral para lesiones, dolor y padecimientos musculoesqueléticos.";
+  "Diagnóstico y tratamiento de lesiones, dolor articular y problemas de columna. Opciones quirúrgicas y no quirúrgicas. Ciudad de México.";
 const socialImage = `${siteUrl}/images/og-image.jpg`;
 
 const fraunces = Fraunces({
@@ -25,6 +25,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: socialTitle,
+  alternates: { canonical: siteUrl },
   description: socialDescription,
   icons: {
     icon: [
