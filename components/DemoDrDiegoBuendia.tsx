@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Menu, X, ShieldCheck, Activity, GraduationCap, Award, Phone, Instagram, Facebook, Music2, ArrowUpRight, MessageCircle } from "lucide-react";
+import { Menu, X, Activity, GraduationCap, ShieldCheck, BriefcaseBusiness, BookOpen, Phone, Instagram, Facebook, Music2, ArrowUpRight, MessageCircle } from "lucide-react";
 
 const WHATSAPP = "https://wa.me/525551996805";
 const EMERGENCY = "tel:+525510489471";
@@ -155,55 +155,54 @@ export default function DemoDrDiegoBuendia({ children }: { children: React.React
 
           <div>
             <Reveal>
-              <p className="text-[12px] uppercase mb-4 text-accent tracking-[0.2em] font-semibold">
+              <h2 className="eyebrow">
+                Perfil profesional
+              </h2>
+              <h3 className="mt-4 font-display font-medium text-[clamp(1.5rem,2.8vw,2rem)] leading-tight text-ink">
                 Dr. Diego Eduardo Buendia Valdez
-              </p>
+              </h3>
             </Reveal>
             <Reveal delay={100}>
-              <h2 className="font-display font-normal text-[clamp(2rem,4vw,3rem)] leading-tight text-ink">
-                Mi propósito es mejorar tu calidad de vida.
-              </h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <div className="mt-8 flex flex-col gap-5 text-[16px] leading-relaxed text-muted font-light">
+              <div className="mt-8 text-[16px] leading-relaxed text-muted font-light">
                 <p>
-                  Soy Diego Buendia, ortopedista y cirujano de columna. Estudié
-                  Medicina en la UNAM, donde también hice la especialidad en
-                  Ortopedia y la alta especialidad en Cirugía de Columna.
-                  Completé mi formación en cirugía de columna en el IMSS.
+                  Especialista en Ortopedia y Traumatología, con alta especialidad en Cirugía de Columna Vertebral.
                 </p>
-                <p>
-                  Un problema de movilidad no se queda en el consultorio. Cansa,
-                  desanima y pesa también en quien te acompaña. Por eso el
-                  tratamiento lo decidimos juntos, con tiempos reales y sin
-                  promesas de más.
-                </p>
-                <p className="text-ink font-medium">
-                  Trabajo con un equipo de expertos que te acompaña desde la
-                  primera consulta hasta que vuelves a tu rutina.
-                </p>
+                <div className="mt-7 space-y-6">
+                  <div className="flex items-start gap-4">
+                    <GraduationCap size={22} strokeWidth={1.5} className="mt-1 shrink-0 text-accent" aria-hidden="true" />
+                    <div className="min-w-0 space-y-4">
+                      <p>
+                        Médico Cirujano. Universidad Nacional Autónoma de México (UNAM). Cédula profesional 5492834.
+                      </p>
+                      <p>
+                        Especialidad en Ortopedia y Traumatología. UNAM, sede Hospital General Dr. Manuel Gea González. Cédula de especialidad 7440114.
+                      </p>
+                      <p>
+                        Alta especialidad en Cirugía de Columna Vertebral. UNAM.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <ShieldCheck size={22} strokeWidth={1.5} className="mt-1 shrink-0 text-accent" aria-hidden="true" />
+                    <p className="min-w-0">
+                      Certificado por el Consejo Mexicano de Ortopedia y Traumatología, registro 1034217.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <BriefcaseBusiness size={22} strokeWidth={1.5} className="mt-1 shrink-0 text-accent" aria-hidden="true" />
+                    <p className="min-w-0">
+                      Más de 20 años de ejercicio profesional en instituciones públicas y privadas.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <BookOpen size={22} strokeWidth={1.5} className="mt-1 shrink-0 text-accent" aria-hidden="true" />
+                    <p className="min-w-0">
+                      Docente, conferencista y autor de investigaciones y capítulos de libros de su especialidad. Miembro de la Asociación Mexicana de Cirujanos de Columna y AO Spine.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </Reveal>
-            <Reveal delay={300}>
-              <ul className="mt-8 space-y-4 border-t border-line pt-6 text-[14px] leading-relaxed text-muted">
-                <li className="flex items-start gap-3">
-                  <ShieldCheck size={20} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-                  <span>Certificación del Consejo Mexicano de Ortopedia y Traumatología.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Award size={20} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-                  <span>Miembro de la North American Spine Society.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <GraduationCap size={20} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-                  <span>Maestría en Bioética y maestría en Administración de Instituciones de Salud.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Activity size={20} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-                  <span>Más de 20 años de ejercicio profesional.</span>
-                </li>
-              </ul>
-               <Image width={800} height={782} src={IMG.logoBlue} alt="Firma Dr. Buendia" className="h-24 w-auto mt-10 opacity-80" />
+              <Image width={800} height={782} src={IMG.logoBlue} alt="Firma Dr. Buendia" className="h-24 w-auto mt-10 opacity-80" />
             </Reveal>
           </div>
         </div>

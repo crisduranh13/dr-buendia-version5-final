@@ -43,7 +43,22 @@ const baseline = execFileSync('git', ['show', 'backup/pre-buendia-v4-20261103:co
 const video = (code) => code.match(/<div className="absolute inset-0 overflow-hidden pointer-events-none"[\s\S]*?<\/div>/)[0];
 assert.equal(video(current), video(baseline), 'Video, fuente, reproducción y recorte deben conservarse intactos');
 assert.equal(current.slice(current.indexOf('      <dialog')), baseline.slice(baseline.indexOf('      <dialog')), 'Interfaz de privacidad intacta');
-const biography = (code) => code.match(/Mi propósito es mejorar tu calidad de vida\.[\s\S]*?<\/ul>/)[0].match(/<p(?:\s[^>]*)?>[\s\S]*?<\/p>|<span>[\s\S]*?<\/span>/g).map((part) => normalize(part.replace(/<[^>]+>/g, '')));
-for (const paragraph of biography(baseline)) assert(biography(current).includes(paragraph), `Biografía o credencial modificada: ${paragraph}`);
-assert.equal((current.match(/Más de 20 años de ejercicio profesional\./g) || []).length, 1);
+const profile = html.match(/<section id="perfil-profesional"[\s\S]*?<\/section>/)[0];
+const profileText = normalize(profile.replace(/<[^>]+>/g, ' '));
+const expectedProfile = [
+  'Perfil profesional',
+  'Dr. Diego Eduardo Buendia Valdez',
+  'Especialista en Ortopedia y Traumatología, con alta especialidad en Cirugía de Columna Vertebral.',
+  'Médico Cirujano. Universidad Nacional Autónoma de México (UNAM). Cédula profesional 5492834.',
+  'Especialidad en Ortopedia y Traumatología. UNAM, sede Hospital General Dr. Manuel Gea González. Cédula de especialidad 7440114.',
+  'Alta especialidad en Cirugía de Columna Vertebral. UNAM.',
+  'Certificado por el Consejo Mexicano de Ortopedia y Traumatología, registro 1034217.',
+  'Más de 20 años de ejercicio profesional en instituciones públicas y privadas.',
+  'Docente, conferencista y autor de investigaciones y capítulos de libros de su especialidad. Miembro de la Asociación Mexicana de Cirujanos de Columna y AO Spine.',
+];
+assert.equal(profileText, expectedProfile.join(' '), 'Perfil profesional íntegro y en el orden solicitado');
+assert.equal((profile.match(/<svg\b/g) || []).length, 4, 'Cuatro iconos para formación, certificación, experiencia y actividad académica');
+assert(!profile.includes('<ul'), 'Credenciales en párrafos, sin viñetas');
+const signature = (code) => code.match(/src={IMG.logoBlue} alt="Firma Dr. Buendia" className="([^"]+)"/)[1];
+assert.equal(signature(current), signature(baseline), 'Logotipo del perfil con el tamaño y la forma originales');
 console.log(`Verificación V4 correcta: ${paragraphs} bloques editoriales en orden; 49 entradas clínicas completas; H1, anchors, contactos, assets, video, biografía y privacidad comprobados.`);
